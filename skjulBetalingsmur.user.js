@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Skjul VG+
 // @namespace    http://tampermonkey.net/
-// @version      1.0
+// @version      1.1
 // @description  Skjul artikler på VG som krever VG+
 // @match        https://www.vg.no/*
 // @grant        none
@@ -12,10 +12,8 @@
 
     function skjulBetalingsmur() {
         // Sjekk om hver article-container, inneholder en div med class "type-icon pluss-icon"
-        document.querySelectorAll('.article-container').forEach(container => {
-            if (container.querySelector('.type-icon.pluss-icon')) {
-                container.style.display = 'none';
-            }
+        document.querySelectorAll('article.is-paywalled, article.personalized--pluss').forEach(article => {
+            article.remove();
         });
     }
 
