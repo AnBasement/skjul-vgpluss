@@ -11,7 +11,7 @@
     'use strict';
 
     function skjulBetalingsmur() {
-        // Sjekk om hver article-container, inneholder en div med class "type-icon pluss-icon"
+        // Sjekk om hver artikkel er merket med klassene "is-paywalled" eller "personalized--pluss" og fjerner artikkelen"
         document.querySelectorAll('article.is-paywalled, article.personalized--pluss').forEach(article => {
             article.remove();
         });
